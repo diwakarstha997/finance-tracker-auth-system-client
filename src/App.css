@@ -1,0 +1,85 @@
+/* Custom Background Colors */
+.bg-color-grey-light {
+  background-color: var(--color-grey-light);
+}
+
+.bg-color-grenishblue {
+  background-color: var(--color-grenishblue);
+}
+
+.bg-color-grenishblue-light {
+  background-color: var(--color-grenishblue-light);
+}
+
+/* Custom Text Colors  */
+.text-color-grenishblue {
+  color: var(--color-grenishblue);
+}
+
+.text-color-grenishblue-dark {
+  color: var(--color-grenishblue-dark);
+}
+
+
+.text-color-grenishblue-light {
+  color: var(--color-grenishblue-light);
+}
+
+/* Custom Text Heading Size */
+.heading-1 {
+  font-size: 80px;
+}
+
+.heading-2 {
+  font-size: 64px;
+}
+
+.heading-4 {
+  font-size: 32px
+}
+
+.heading-5 {
+  font-size: 24px
+}
+
+.heading-6 {
+  font-size: 18px
+}
+
+/* Image Container Box */
+.image-box {
+  width: 100%;
+}
+
+/* Logo Component Style */
+.logo-wrapper {
+  width: 100px;
+  height: 100px;
+}
+
+.logo-wrapper > img {
+  border-radius: 0% 50% 50% 50%;
+}
+
+/* Custom Input Field Style */
+.input-field {
+  width: 100%;
+  height: 40px;
+  border-color: rgb(118, 118, 118);
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.input-field:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: black;
+}
+
+/* Footer Component Style */
+.footer-copyright-text {
+  text-align: center;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: rgba(128, 128, 128, 0.13);
+}
