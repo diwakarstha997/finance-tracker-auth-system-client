@@ -15,7 +15,7 @@ const SignupForm = () => {
     const [isPasswordValid, setIsPasswordValid] = useState(true);
 
     const handleOnSubmit = async(e) => {
-        e.preventDefault;
+        e.preventDefault();
 
         // send api request to create user
         const result = await createUser({
