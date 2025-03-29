@@ -10,6 +10,7 @@ const USER_API_URL =  API_BASE_URL + USER_ENDPOINT
 export const createUser = (userObj) => {
     const response = axios
                         .post(USER_API_URL, userObj)
-                        .then(res => res.body)
+                        .then(res => res.data)
                         .catch(e => console.log(e))
+    return response;
 }

@@ -86,6 +86,12 @@
   border-color: red;
 }
 
+/* Custom Tag  */
+.tag{
+  border-radius: 50px;
+  display: inline-block;
+}
+
 /* Footer Component Style */
 .footer-copyright-text {
   text-align: center;
