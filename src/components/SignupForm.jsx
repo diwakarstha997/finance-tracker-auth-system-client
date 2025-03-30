@@ -2,7 +2,7 @@ import { Button, Form } from "react-bootstrap"
 import InputField from "./InputField"
 import { useState } from "react"
 import { createUser } from "../axios/userAxios"
-import { redirect } from "react-router"
+import { Navigate, redirect, useNavigate } from "react-router"
 import CustomTag from "./CustomTag"
 
 const initialValue = {
@@ -16,13 +16,12 @@ const SignupForm = () => {
     const { email, password, confirm_password } = formData;
     const [isPasswordValid, setIsPasswordValid] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleOnSubmit = async(e) => {
         e.preventDefault();
 
         setErrorMessage("");
-        setSuccessMessage("");
 
         if(!isPasswordValid){
             return;
@@ -39,8 +38,9 @@ const SignupForm = () => {
             setErrorMessage(result.message)
             return;
         }
+
         // success
-        setSuccessMessage(result.message)
+        navigate("/register-success");
     }
 
     const matchPassword = (first_password, second_password) => {
@@ -71,15 +71,6 @@ const SignupForm = () => {
                     <CustomTag 
                         label={`${errorMessage}`}
                         className="border border-danger border-1 bg-danger bg-opacity-25 text-danger fw-bold px-5 py-2"
-                    /> 
-                </div>
-            }
-
-            {successMessage != "" && 
-                <div className="d-flex justify-content-center">
-                    <CustomTag 
-                        label={`${successMessage}`}
-                        className="border border-success border-1 bg-success bg-opacity-25 text-success fw-bold px-5 py-2"
                     /> 
                 </div>
             }
