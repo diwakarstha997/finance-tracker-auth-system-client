@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/register"/>} />
         <Route path="/register" element={<SignupPage />} />
-        <Route path="/register-success" element={<SignupSuccess />} />
+        <Route path="/register-success/:email" element={<SignupSuccess />} />
       </Routes>
   )
 }

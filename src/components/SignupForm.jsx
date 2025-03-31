@@ -39,8 +39,16 @@ const SignupForm = () => {
             return;
         }
 
+        console.log(email);
         // success
-        navigate("/register-success");
+        navigate(
+            `/register-success/${email}`,
+           {
+            state: {
+                email
+            }
+           }
+        );
     }
 
     const matchPassword = (first_password, second_password) => {
