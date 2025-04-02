@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
 import { verifyUserEmail } from "../../axios/userAxios";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const VerifyEmailPage = () => {
     const [isEmailVerified, setIsEmailVerified] = useState(false);
@@ -18,7 +20,7 @@ const VerifyEmailPage = () => {
         const responseData = await verifyUserEmail(userEmail, token);
 
         // if email verification failed
-        if(responseData.status = "error"){
+        if(responseData.status == "error"){
             setIsEmailVerified(false);
             return;
         }
@@ -39,7 +41,7 @@ const VerifyEmailPage = () => {
         <Navbar />
 
         {/* if email verification failed */}
-        {!!isEmailVerified && 
+        {!isEmailVerified && 
             <Container className="d-flex justify-content-center my-5 py-5">
                 <div className="align-content-center text-center py-5">
                     <div className="border border-danger border-2 rounded-3 px-5 py-5 bg-danger bg-opacity-25 text-danger fw-bold">
@@ -60,7 +62,7 @@ const VerifyEmailPage = () => {
                         <p>Email Successfully Verified.</p>
                         <p>
                             Please login: 
-                            <Link to="/login" className="nav-link">
+                            <Link to="/login" className="px-2 text-dark">
                                 Login
                             </Link>
                         </p>

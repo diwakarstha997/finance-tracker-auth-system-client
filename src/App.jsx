@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router'
 import './App.css'
 import SignupPage from './pages/Auth/SignupPage'
 import SignupSuccess from './pages/Auth/SignupSuccess'
+import VerifyEmailPage from './pages/Auth/VerifyEmailPage'
 
 function App() {
 
