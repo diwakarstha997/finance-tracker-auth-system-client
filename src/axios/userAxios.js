@@ -14,3 +14,12 @@ export const createUser = (userObj) => {
                         .catch(e => console.log(e))
     return response;
 }
+
+// Verify user email | Patch request
+export const verifyUserEmail = (userEmail, token) => {
+    const response = axios
+                        .patch(USER_API_URL, {userEmail, token})
+                        .then(res => res.data)
+                        .catch(e => console.log(e))
+    return response;
+}
