@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
+import { verifyUserEmail } from "../../axios/userAxios";
 
 const VerifyEmailPage = () => {
     const [isEmailVerified, setIsEmailVerified] = useState(false);
@@ -12,17 +13,23 @@ const VerifyEmailPage = () => {
     const token = params.get('token');
 
     // Send API request for verifying user
-    const verifyUserEmail = async () => {
+    const verifyEmail = async () => {
         // axios api request to verify user email 
+        const responseData = await verifyUserEmail(userEmail, token);
 
         // if email verification failed
+        if(responseData.status = "error"){
+            setIsEmailVerified(false);
+            return;
+        }
 
         // if email verification success
+        setIsEmailVerified(true);
     }
 
     useEffect(() => {
         if(userEmail && token){
-            verifyUserEmail();
+            verifyEmail();
         }
     },[userEmail, token])
 
