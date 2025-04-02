@@ -10,6 +10,7 @@ function App() {
         <Route path="/" element={<Navigate to="/register"/>} />
         <Route path="/register" element={<SignupPage />} />
         <Route path="/register-success/:email" element={<SignupSuccess />} />
+        <Route path="/email-verification" element={<VerifyEmailPage />} />
       </Routes>
   )
 }
