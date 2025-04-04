@@ -1,9 +1,9 @@
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import InputField from "./InputField";
 import { useState } from "react";
 
 
-initialFormData = {
+const initialFormData = {
     email: "",
     password: "",
 }
@@ -33,7 +33,7 @@ const LoginForm = () => {
     return(
         <Form onSubmit={handleOnSubmit}>
             <InputField
-                label="email"
+                label="Email"
                 inputFieldAttribute={{
                     type: "email",
                     name: "email",
@@ -44,7 +44,7 @@ const LoginForm = () => {
             />
 
             <InputField
-                label="password"
+                label="Password"
                 inputFieldAttribute={{
                     type: "password",
                     name: "password",
@@ -53,6 +53,10 @@ const LoginForm = () => {
                     required: true
                 }}
             />
+
+            <div className="d-grid">
+                <Button type="submit" className="btn-dark my-3 px-5 py-2" >Sign up</Button>
+            </div>
         </Form>
     )
 }
