@@ -32,3 +32,17 @@ export const loginUser = (userObj) => {
                         .catch(e => console.log(e))
     return response;
 }
+
+// Private Endpoint
+// Get user |  Get Request
+export const getUser = () => {
+    const response = axios
+                        .get(USER_API_URL, {
+                            header: {
+                                Authorization: sessionStorage.getItem(jwtAccessToken)
+                            }
+                        })
+                        .then(res => res.data)
+                        .catch(e => console.log(e))
+    return response;
+}
