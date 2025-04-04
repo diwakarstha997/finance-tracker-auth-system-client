@@ -1,8 +1,10 @@
 import { Button, Form } from "react-bootstrap";
 import InputField from "./InputField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginUser } from "../axios/userAxios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAction } from "../redux/user/userActions";
+import { useLocation, useNavigate } from "react-router";
 
 
 const initialFormData = {
@@ -30,6 +32,11 @@ const LoginForm = () => {
         localStorage.setItem("jwtRefreshToken", response.data.jwtRefreshToken)
 
         // dispatch an action to get the user data
+        const result = dispatch(getUserAction());
+
+        if(result.status == "error"){
+            setErrorMessage(result.message);
+        }
     }
 
     const handleOnChange = (e) => {
@@ -40,6 +47,18 @@ const LoginForm = () => {
             [name]: value
         })
     }
+
+    // check if user exists
+    const { user } = useSelector( state => state.user );
+
+    // navigate to user private route if login is success
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(user?._id){
+            navigate("/auth/home")
+        }
+    }, [navigate, user])
 
     return(
         <Form onSubmit={handleOnSubmit}>
