@@ -1,6 +1,8 @@
 import { Button, Form } from "react-bootstrap";
 import InputField from "./InputField";
 import { useState } from "react";
+import { loginUser } from "../axios/userAxios";
+import { useDispatch } from "react-redux";
 
 
 const initialFormData = {
@@ -9,16 +11,25 @@ const initialFormData = {
 }
 const LoginForm = () => {
     const [formData, setFormData] = useState(initialFormData);
+    const [errorMessage, setErrorMessage] = useState("");
 
-    const handleOnSubmit = () => {
+    const dispatch = useDispatch();
+
+    const handleOnSubmit = async () => {
         e.preventDefault();
 
         // call axios request to login user
+        const response = await loginUser(formData);
+
+        if(response.status == "error"){
+            setErrorMessage(response.message);
+        }
 
         // if success store jwt access token on session and refresh token local storage
+        sessionStorage.setItem("jwtAccessToken", response.data.jwtAccessToken);
+        localStorage.setItem("jwtRefreshToken", response.data.jwtRefreshToken)
 
         // dispatch an action to get the user data
-
     }
 
     const handleOnChange = (e) => {
