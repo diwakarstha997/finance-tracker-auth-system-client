@@ -23,3 +23,12 @@ export const verifyUserEmail = (userEmail, token) => {
                         .catch(e => console.log(e))
     return response;
 }
+
+// Login user | Get request
+export const loginUser = (userObj) => {
+    const response = axios
+                        .get(`${USER_API_URL}/login`, userObj)
+                        .then(res => res.data)
+                        .catch(e => console.log(e))
+    return response;
+}
