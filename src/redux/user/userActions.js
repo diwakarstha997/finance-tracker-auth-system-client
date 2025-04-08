@@ -8,7 +8,7 @@ export const getUserAction = () => async (dispatch) => {
     // if token invalid response with error
     if(response?.status == "error"){
         if(response.message == "Invalid Token"){
-            sessionStorage.setItem("jwtAccessToken","");
+            sessionStorage.setItem("accessJWT","");
         }
         return response;
     }

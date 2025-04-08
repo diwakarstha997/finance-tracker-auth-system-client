@@ -7,8 +7,8 @@ const USER_API_URL =  API_BASE_URL + USER_ENDPOINT
 
 // Public Routes
 // Resister | Signup user
-export const createUser = (userObj) => {
-    const response = axios
+export const createUser = async (userObj) => {
+    const response = await axios
                         .post(USER_API_URL, userObj)
                         .then(res => res.data)
                         .catch(e => console.log(e))
@@ -16,8 +16,8 @@ export const createUser = (userObj) => {
 }
 
 // Verify user email | Patch request
-export const verifyUserEmail = (userEmail, token) => {
-    const response = axios
+export const verifyUserEmail = async (userEmail, token) => {
+    const response = await axios
                         .patch(USER_API_URL, {userEmail, token})
                         .then(res => res.data)
                         .catch(e => console.log(e))
@@ -25,9 +25,9 @@ export const verifyUserEmail = (userEmail, token) => {
 }
 
 // Login user | Get request
-export const loginUser = (userObj) => {
-    const response = axios
-                        .get(`${USER_API_URL}/login`, userObj)
+export const loginUser = async (userObj) => {
+    const response = await axios
+                        .post(`${USER_API_URL}/login`, userObj)
                         .then(res => res.data)
                         .catch(e => console.log(e))
     return response;
@@ -35,11 +35,11 @@ export const loginUser = (userObj) => {
 
 // Private Endpoint
 // Get user |  Get Request
-export const getUser = () => {
-    const response = axios
+export const getUser = async () => {
+    const response = await axios
                         .get(USER_API_URL, {
-                            header: {
-                                Authorization: sessionStorage.getItem(jwtAccessToken)
+                            headers: {
+                                Authorization: sessionStorage.getItem("accessJWT")
                             }
                         })
                         .then(res => res.data)
