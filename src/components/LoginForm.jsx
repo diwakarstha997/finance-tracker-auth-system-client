@@ -17,7 +17,7 @@ const LoginForm = () => {
 
     const dispatch = useDispatch();
 
-    const handleOnSubmit = async () => {
+    const handleOnSubmit = async (e) => {
         e.preventDefault();
 
         // call axios request to login user
@@ -28,8 +28,8 @@ const LoginForm = () => {
         }
 
         // if success store jwt access token on session and refresh token local storage
-        sessionStorage.setItem("jwtAccessToken", response.data.jwtAccessToken);
-        localStorage.setItem("jwtRefreshToken", response.data.jwtRefreshToken)
+        sessionStorage.setItem("accessJWT", response.data.accessJWT);
+        localStorage.setItem("refreshJWT", response.data.refreshJWT)
 
         // dispatch an action to get the user data
         const result = dispatch(getUserAction());
@@ -85,7 +85,7 @@ const LoginForm = () => {
             />
 
             <div className="d-grid">
-                <Button type="submit" className="btn-dark my-3 px-5 py-2" >Sign up</Button>
+                <Button type="submit" className="btn-dark my-3 px-5 py-2" >Login</Button>
             </div>
         </Form>
     )
