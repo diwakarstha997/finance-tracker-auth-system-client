@@ -3,7 +3,7 @@ import InputField from "./InputField";
 import { useEffect, useState } from "react";
 import { loginUser } from "../axios/userAxios";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAction } from "../redux/user/userActions";
+import { autoLoginAction, getUserAction } from "../redux/user/userActions";
 import { useLocation, useNavigate } from "react-router";
 
 
@@ -55,8 +55,14 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // if user logged in
         if(user?._id){
             navigate("/auth/home")
+        }
+
+        // auto login action
+        if(!user?._id){          
+            dispatch(autoLoginAction());
         }
     }, [navigate, user])
 
