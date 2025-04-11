@@ -1,4 +1,4 @@
-import { getAccessToken, getUser } from "../../axios/userAxios"
+import { getAccessToken, getUser, logoutUser } from "../../axios/userAxios"
 import { setUser } from "./userSlice";
 
 // get user action
@@ -43,4 +43,21 @@ export const autoLoginAction = () => async(dispatch) => {
 
     // if access token exist dispatch get user action 
     dispatch(getUserAction());
+}
+
+// Logout user action
+export const logoutUserAction = () => async(dispatch) => {
+    // call to api to delete user session
+    const result = await logoutUser();
+
+    if(result.status == "error"){
+        return
+    }
+
+    // if success
+    sessionStorage.removeItem("accessJWT");
+    localStorage.removeItem("refreshJWT");
+
+    // clear state
+    dispatch(setUser({}));
 }

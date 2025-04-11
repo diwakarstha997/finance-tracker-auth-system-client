@@ -59,3 +59,18 @@ export const getAccessToken = async () => {
                         .catch(e => console.log(e))
     return response;
 }
+
+// Logout User Process | POST
+export const logoutUser = async () => {
+    const response = await axios
+                        .post(`${USER_API_URL}/logout`, 
+                            {},
+                            {
+                            headers: {
+                                Authorization: sessionStorage.getItem("accessJWT")
+                            }
+                        })
+                        .then(res => res.data)
+                        .catch(e => console.log(e))
+    return response;
+}
