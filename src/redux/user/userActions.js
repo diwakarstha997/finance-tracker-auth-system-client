@@ -1,4 +1,4 @@
-import { getUser } from "../../axios/userAxios"
+import { getAccessToken, getUser, logoutUser } from "../../axios/userAxios"
 import { setUser } from "./userSlice";
 
 // get user action
@@ -12,9 +12,7 @@ export const getUserAction = () => async (dispatch) => {
             sessionStorage.setItem("accessJWT","");
         }
         return response;
-    }
-    console.log("response data:", response);
-    
+    }  
 
     // if token valid dispatch an action
     dispatch(setUser(response.data));
@@ -26,11 +24,40 @@ export const autoLoginAction = () => async(dispatch) => {
     const accessJWT = sessionStorage.getItem("accessJWT");
     const refreshJWT = localStorage.getItem("refreshJWT");
 
+    // if both access token and refresh token doesnot exist
+    if(!accessJWT && !refreshJWT) {
+        return
+    }
 
-    // if both token exist dispatch get user action
-    if(accessJWT && refreshJWT){
-        console.log("get user action");
-        
+    // if access token doesnot exist
+    if(!accessJWT && refreshJWT) {
+        const result = await getAccessToken();
+
+        if(result.status == "error"){
+            return
+        }
+
+        sessionStorage.setItem("accessJWT", result.data);
         dispatch(getUserAction());
     }
+
+    // if access token exist dispatch get user action 
+    dispatch(getUserAction());
+}
+
+// Logout user action
+export const logoutUserAction = () => async(dispatch) => {
+    // call to api to delete user session
+    const result = await logoutUser();
+
+    if(result.status == "error"){
+        return
+    }
+
+    // if success
+    sessionStorage.removeItem("accessJWT");
+    localStorage.removeItem("refreshJWT");
+
+    // clear state
+    dispatch(setUser({}));
 }
