@@ -1,12 +1,57 @@
-# React + Vite
+# Finance Tracker Auth System
+A client-side React application for the Finance Tracker authentication system. This app handles user authentication features like sign-up, login, and session management. It is designed to work with the backend authentication service of the Finance Tracker project.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Structure
+    finance-tracker-auth-system-client/
+    ├── public/
+    ├── src/
+    │   ├── assets/
+    │   ├── components/
+    │   ├── context/
+    │   ├── pages/
+    │   ├── services/
+    │   ├── App.jsx
+    │   └── main.jsx
+    ├── .env
+    ├── .gitignore
+    ├── package.json
+    └── README.md
 
-Currently, two official plugins are available:
+## Features
+- User registration and login
+- Secure authentication flow
+- JWT token handling
+- Basic user profile access
+- Route protection based on authentication state
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React** (with functional components and hooks)
+- **React Router DOM** for routing
+- **Redux** for global state management
+- **Axios** for HTTP requests
+- **LocalStorage** for token persistence
+- **JWT** (used in backend, consumed here)
+- **Bootstrap** for styling
 
-## Expanding the ESLint configuration
+## Setup Instruction
+### 1. Clone the Repository
+> `git clone https://github.com/diwakarstha997/finance-tracker-auth-system-client.git`
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> `cd finance-tracker-auth-system-client`
+
+### 2. Install Dependencies
+> `yarn install`
+
+### 3. Create .env File
+Create a .env file at the root level and add your API URL:
+> `VITE_API_URL=<API URL>`
+
+
+
+### 4. Run the Development Server
+> `yarn dev`
+
+## API Integration
+Ensure the backend server is running and accessible.
+
+Bankend Repo Link: [https://github.com/diwakarstha997/finance-tracker-auth-system-api](https://github.com/diwakarstha997/finance-tracker-auth-system-api)
