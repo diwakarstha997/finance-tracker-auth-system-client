@@ -46,3 +46,31 @@ export const getUser = async () => {
                         .catch(e => console.log(e))
     return response;
 }
+
+// Get New Access Token | GET
+export const getAccessToken = async () => {
+    const response = await axios
+                        .get(`${USER_API_URL}/accessJWT`, {
+                            headers: {
+                                Authorization: localStorage.getItem("refreshJWT")
+                            }
+                        })
+                        .then(res => res.data)
+                        .catch(e => console.log(e))
+    return response;
+}
+
+// Logout User Process | POST
+export const logoutUser = async () => {
+    const response = await axios
+                        .post(`${USER_API_URL}/logout`, 
+                            {},
+                            {
+                            headers: {
+                                Authorization: sessionStorage.getItem("accessJWT")
+                            }
+                        })
+                        .then(res => res.data)
+                        .catch(e => console.log(e))
+    return response;
+}
