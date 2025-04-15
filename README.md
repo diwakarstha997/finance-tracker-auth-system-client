@@ -7,9 +7,11 @@ A client-side React application for the Finance Tracker authentication system. T
     ├── src/
     │   ├── assets/
     │   ├── components/
-    │   ├── context/
+    │   ├── redux/ 
+    │   │   └── user/
     │   ├── pages/
-    │   ├── services/
+    │   │   └── auth/
+    │   ├── axios/
     │   ├── App.jsx
     │   └── main.jsx
     ├── .env
@@ -32,6 +34,9 @@ A client-side React application for the Finance Tracker authentication system. T
 - **LocalStorage** for token persistence
 - **JWT** (used in backend, consumed here)
 - **Bootstrap** for styling
+
+## Live Demo Link
+> [https://finance-tracker-auth-system-client.vercel.app/](https://finance-tracker-auth-system-client.vercel.app/)
 
 ## Setup Instruction
 ### 1. Clone the Repository
