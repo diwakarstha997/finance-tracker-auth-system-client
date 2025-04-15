@@ -36,7 +36,7 @@ A client-side React application for the Finance Tracker authentication system. T
 - **Bootstrap** for styling
 
 ## Live Demo Link
-> [https://finance-tracker-auth-system-client.vercel.app/](http://ft-client-bucket.s3-website-ap-southeast-2.amazonaws.com)
+> [http://ft-client-bucket.s3-website-ap-southeast-2.amazonaws.com](http://ft-client-bucket.s3-website-ap-southeast-2.amazonaws.com)
 
 ## Setup Instruction
 ### 1. Clone the Repository
