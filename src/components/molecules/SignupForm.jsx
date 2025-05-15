@@ -1,9 +1,9 @@
 import { Button, Form } from "react-bootstrap"
-import InputField from "./InputField"
+import InputField from "../atoms/InputField"
 import { useState } from "react"
-import { createUser } from "../axios/userAxios"
+import { createUser } from "../../axios/userAxios"
 import { Navigate, redirect, useNavigate } from "react-router"
-import CustomTag from "./CustomTag"
+import CustomTag from "../atoms/CustomTag"
 
 const initialValue = {
     email: "",

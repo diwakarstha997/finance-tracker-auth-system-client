@@ -1,7 +1,7 @@
 import { Button, Container } from "react-bootstrap"
 import { useDispatch } from "react-redux";
 import { Link } from "react-router";
-import { logoutUserAction } from "../redux/user/userActions";
+import { logoutUserAction } from "../../redux/user/userActions";
 
 const UserHomePage = () => {
 

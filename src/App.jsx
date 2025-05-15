@@ -4,8 +4,8 @@ import SignupPage from './pages/Auth/SignupPage'
 import SignupSuccess from './pages/Auth/SignupSuccess'
 import VerifyEmailPage from './pages/Auth/VerifyEmailPage'
 import LoginPage from './pages/Auth/LoginPage'
-import UserHomePage from './pages/UserHomePage'
-import PrivateRoute from './components/PrivateRoute'
+import UserHomePage from './pages/User/UserHomePage'
+import PrivateRoute from './components/organism/PrivateRoute'
 
 function App() {
 

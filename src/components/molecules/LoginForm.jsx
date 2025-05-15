@@ -1,9 +1,9 @@
 import { Button, Form } from "react-bootstrap";
-import InputField from "./InputField";
+import InputField from "../atoms/InputField";
 import { useEffect, useState } from "react";
-import { loginUser } from "../axios/userAxios";
+import { loginUser } from "../../axios/userAxios";
 import { useDispatch, useSelector } from "react-redux";
-import { autoLoginAction, getUserAction } from "../redux/user/userActions";
+import { autoLoginAction, getUserAction } from "../../redux/user/userActions";
 import { useLocation, useNavigate } from "react-router";
 
 

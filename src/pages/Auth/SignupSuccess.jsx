@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/molecules/Navbar";
+import Footer from "../../components/molecules/Footer";
 import { useLocation } from "react-router";
 
 const SignupSuccess = () => {

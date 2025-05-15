@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Link, useSearchParams } from "react-router";
 import { verifyUserEmail } from "../../axios/userAxios";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import Navbar from "../../components/molecules/Navbar";
+import Footer from "../../components/molecules/Footer";
 
 const VerifyEmailPage = () => {
     const [isEmailVerified, setIsEmailVerified] = useState(false);

@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import SignupForm from "../../components/SignupForm";
+import Footer from "../../components/molecules/Footer";
+import Navbar from "../../components/molecules/Navbar";
+import SignupForm from "../../components/molecules/SignupForm";
 import { Link } from "react-router";
 
 const SignupPage = () => {
